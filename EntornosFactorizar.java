@@ -2,15 +2,17 @@ package prueba;
 public class EntornosFactorizar {
     
     
-    public double calculaDato(double precioBase, int cantidad, double descuento, double impuestos, boolean tieneTarjetaFidelidad, double saldoTarjeta, boolean esOfertaEspecial, boolean esNavidad, boolean esMiembroVip, String metodoPago, boolean aplicarCuotas, int cuota, boolean esEnvioGratis, double precioEnvio, String tipoProducto, String categoriaProducto, String codigoCupon, Usuario usuario) {
-        double total = precioBase * cantidad;
+    public double calculaDato(double precioBase, int cantidad, double descuento, double impuestos, boolean tieneTarjetaFidelidad, double saldoTarjeta, 
+    		boolean esOfertaEspecial, boolean esNavidad, boolean esMiembroVip, String metodoPago, boolean aplicarCuotas, int cuota,
+    		boolean esEnvioGratis, double precioEnvio, String tipoProducto, String categoriaProducto, String codigoCupon, Usuario usuario) {
+        
+    	double total = precioBase * cantidad;
 
        
         if (descuento > 0) {
             total -= total * (descuento / 100);
         }
 
-        //Como va eso niño
 
         if (tieneTarjetaFidelidad && saldoTarjeta > 0) {
             total -= saldoTarjeta;
@@ -24,7 +26,6 @@ public class EntornosFactorizar {
         }
 
         
-        //Comentario 2
      
         if (esNavidad) {
             total *= 0.85;
