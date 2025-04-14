@@ -23,6 +23,8 @@ public class EntornosFactorizar {
             total *= 0.9;
         }
 
+        
+        //Comentario 2
      
         if (esNavidad) {
             total *= 0.85;
