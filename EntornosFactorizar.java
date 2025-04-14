@@ -17,21 +17,9 @@ public class EntornosFactorizar {
 
        
         total += total * (impuestos / 100);
-
-        if (esOfertaEspecial) {
-            total *= 0.9;
-        }
-
-     
-        if (esNavidad) {
-            total *= 0.85;
-        }
-
-     
-        if (esMiembroVip) {
-            total *= 0.8;
-        }
-
+        // A partir de aqui copiaremos estas condiciones en un metodo a parte
+        	descuentosEspeciales(esMiembroVip, esOfertaEspecial, esNavidad, total);
+        //
         
         if (metodoPago.equals("TarjetaCredito")) {
             total *= 1.05;
@@ -110,5 +98,21 @@ public class EntornosFactorizar {
             total *= 0.9; 
         }
         return total;
+    }
+    
+    private boolean descuentosEspeciales(boolean esMiembroVip, boolean esOfertaEspecial, boolean esNavidad, double total) {
+    	if (esOfertaEspecial) {
+            total *= 0.9;
+        }
+
+     
+        if (esNavidad) {
+            total *= 0.85;
+        }
+
+     
+        if (esMiembroVip) {
+            total *= 0.8;
+        }
     }
 }
