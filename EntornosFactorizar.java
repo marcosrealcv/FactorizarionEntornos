@@ -25,11 +25,9 @@ public class EntornosFactorizar {
 
         // Metodos de pago
         
-        if (metodoPago.equals("TarjetaCredito")) {
-            total *= 1.05;
-        } else if (metodoPago.equals("PayPal")) {
-            total *= 1.02;
-        }
+        total = aplicarRecargoPorMetodo(total,metodoPago);
+        
+        
 
         // Cuotas
         
@@ -88,6 +86,17 @@ public class EntornosFactorizar {
             total *= 0.8;  
         }
         return total;
+    }
+    
+    // Metodos de pago aplicando recargos(tarjeta,paypal)
+    
+    private double aplicarRecargoPorMetodoPago(double total,String metodoPago) {
+    	if (metodoPago.equals("TarjetaCredito")) {
+            total *= 1.05;
+        } else if (metodoPago.equals("PayPal")) {
+            total *= 1.02;
+        }
+    	return total;
     }
     
     // Metodo aplicar cupones descuentos
