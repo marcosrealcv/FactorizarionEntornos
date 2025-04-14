@@ -18,25 +18,10 @@ public class EntornosFactorizar {
         //Agrego impuestos
        
         total += total * (impuestos / 100);
-
-        // OFERTAS ESPECIALES 
         
-        if (esOfertaEspecial) {
-            total *= 0.9;
-        }
+        // Ofertas conbinadas
+        total = aplicarDescuentosPromocionales(total, esOfertaEspecial,esNavidad,esMiembroVip);
 
-        // OFERTA NAVIDAD
-        
-        if (esNavidad) {
-            total *= 0.85;
-        }
-
-     
-        // OFERTA MIEMBBROVIP
-        
-        if (esMiembroVip) {
-            total *= 0.8;
-        }
 
         // Metodos de pago
         
@@ -76,7 +61,7 @@ public class EntornosFactorizar {
         }
 
       
-        // usario nulo
+        // usuario nulo
         
         if (usuario != null) {
             total = aplicarDescuentoPorUsuario(usuario, total);
@@ -90,6 +75,21 @@ public class EntornosFactorizar {
         return total;
     }
 
+    // Las ofertas conbinadas estan metidas en el mismo metodo
+    
+    private double aplicarDescuentosPromocionales(double total,boolean esOfertaEspecial,boolean esNavidad,boolean esMiembroVip){
+    	if (esOfertaEspecial) {
+            total *= 0.9;  
+        }
+        if (esNavidad) {
+            total *= 0.85; 
+        }
+        if (esMiembroVip) {
+            total *= 0.8;  
+        }
+        return total;
+    }
+    
     // Metodo aplicar cupones descuentos
     
     private double aplicarCuponDescuento(double total, String codigoCupon) {
