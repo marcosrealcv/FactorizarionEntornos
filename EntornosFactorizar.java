@@ -21,25 +21,21 @@ public class EntornosFactorizar {
         if (esOfertaEspecial) {
             total *= 0.9;
         }
-
-     
         if (esNavidad) {
             total *= 0.85;
         }
-
-     
         if (esMiembroVip) {
             total *= 0.8;
         }
 
-        
+        //Metodo PAgos
         if (metodoPago.equals("TarjetaCredito")) {
             total *= 1.05;
         } else if (metodoPago.equals("PayPal")) {
             total *= 1.02;
         }
 
-      
+      //Cuotas
         if (aplicarCuotas) {
             if (cuota == 3) {
                 total *= 1.1;
@@ -50,7 +46,7 @@ public class EntornosFactorizar {
             }
         }
 
-
+        //Envio gratis 
         if (!esEnvioGratis) {
             total += precioEnvio;
         }
@@ -63,9 +59,9 @@ public class EntornosFactorizar {
     
         if (!validarProducto(tipoProducto, categoriaProducto)) {
             throw new IllegalArgumentException("El producto no es válido para esta compra.");
-        }
+        } //añadir excepciones
 
-      
+      //aplicar descuento por usuario
         if (usuario != null) {
             total = aplicarDescuentoPorUsuario(usuario, total);
         }
