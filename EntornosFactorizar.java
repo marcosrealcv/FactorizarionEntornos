@@ -10,7 +10,8 @@ public class EntornosFactorizar {
             total -= total * (descuento / 100);
         }
 
-   
+        //Como va eso niño
+
         if (tieneTarjetaFidelidad && saldoTarjeta > 0) {
             total -= saldoTarjeta;
         }
